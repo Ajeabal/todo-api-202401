@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @AllArgsConstructor
+
 @Entity
 @Table(name = "tbl_todo")
 public class Todo {
