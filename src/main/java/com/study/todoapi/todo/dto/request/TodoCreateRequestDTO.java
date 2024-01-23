@@ -6,13 +6,12 @@ import lombok.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
-@Builder
+@Setter @Getter
 @ToString
-@NoArgsConstructor
 @EqualsAndHashCode
+@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TodoCreateRequestDTO {
 
     @NotBlank
@@ -25,4 +24,5 @@ public class TodoCreateRequestDTO {
                 .title(title)
                 .build();
     }
+
 }
