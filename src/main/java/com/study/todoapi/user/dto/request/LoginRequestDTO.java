@@ -5,6 +5,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Setter
@@ -15,13 +17,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class LoginRequestDTO {
-    private String id; // account가 아니라 랜덤식별번호
 
+    @NotBlank
+    @Email
     private String email;
 
+    @NotBlank
     private String password;
-
-    private String userName;
-
-    private LocalDateTime joinDate;
 }
