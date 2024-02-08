@@ -1,10 +1,11 @@
 server:
-  port: 8484
+  port: 80
 
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3307/spring
+      #    url: jdbc:mariadb://localhost:3307/spring
+    url: jdbc:mariadb://spring-database.chguu8qm87ww.ap-northeast-2.rds.amazonaws.com/spring
     username: root
     password: mariadb
   jpa:
@@ -18,6 +19,11 @@ spring:
         format_sql: true   # SQL ??? ????? ??? ?? ??
     database: mysql  # DBMS ?? ??
 
+  servlet:
+    multipart:
+      max-file-size: 3MB # 1개의 파일의 최대 업로드
+      max-request-size: 20MB # 1번 요청할 때 최대 업로드
+
 logging:
   level:
     root: info
@@ -26,3 +32,14 @@ logging:
 
 jwt:
   secret: u3oCWakydxqJE9mlkN0g1r7DuYD9uKBGGlJ147UlS/FEs6rzvEifCIFFmfsqbBHLzTW86uww3CZH7InHjulR2Q==
+
+upload:
+  path: D:/spring-prj/upload
+
+# s3 setting
+aws:
+  credentials:
+    accessKey: AKIA6GBMFL66GJOBWGD7
+    secretKey: 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
+  region: ap-northeast-2
+  bucketName: spring-todo-api-file-bucket-5376

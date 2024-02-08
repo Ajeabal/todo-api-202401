@@ -7,6 +7,7 @@ import com.study.todoapi.todo.dto.response.TodoListResponseDTO;
 import com.study.todoapi.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
@@ -83,6 +84,11 @@ public class TodoController {
         try {
             TodoListResponseDTO dtoList = todoService.delete(id, userInfo.getEmail());
             return ResponseEntity.ok().body(dtoList);
+        } catch (IllegalStateException e) {
+            log.warn(e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(e.getMessage());
+
         } catch (Exception e) {
             return ResponseEntity
                     .internalServerError()

@@ -21,10 +21,14 @@ public class LoginResponseDTO {
     private LocalDate joinDate;
 
     private String token;
+
+    private String role;
+
     public LoginResponseDTO(User user, String token) {
         this.email = user.getEmail();
         this.userName = user.getUserName();
         this.joinDate = LocalDate.from(user.getJoinDate());
         this.token = token;
+        this.role = user.getRole().toString();
     }
 }

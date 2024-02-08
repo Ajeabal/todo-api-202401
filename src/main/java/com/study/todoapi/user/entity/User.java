@@ -43,6 +43,8 @@ public class User {
     @Builder.Default
     private Role role = Role.COMMON;
 
+    private String profileImg; // 프로필 사진 이미지 경로
+
     @OneToMany(mappedBy = "user")
     private List<Todo> todoList = new ArrayList<>();
 
